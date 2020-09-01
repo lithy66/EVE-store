@@ -1,0 +1,198 @@
+
+.basic {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url("../images/bg.jpg");
+    background-attachment: fixed;
+    background-position: center;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    background: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header .logo {
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float: left;
+    font-weight: bold;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    list-style: none;
+    position: relative;
+}
+
+
+header nav ul li .sub-menu:before{
+    content:'\f0d7' ;
+    font-family: fontAwesome;
+    position: absolute;
+    line-height: 50px;
+    color: #fff;
+}
+header nav ul li ul{
+    position: absolute;
+    left: 0;
+    background: #333333;
+    display: none;
+}
+header nav ul li:hover ul{
+    display: block;
+}
+header nav ul li ul li{
+    display: block;
+    width: 200px;
+}
+header nav ul li a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+header nav ul li a:hover, header nav ul li a.active {
+    background: darkcyan;
+}
+.menu-toggle {
+    color: #ffffff;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header nav {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 50px);
+        background: #333;
+        top: 50px;
+        left: -100%;
+        transition: 0.5s;
+    }
+
+    header nav.active {
+        left: 0;
+    }
+
+    header nav ul {
+        display: block;
+        text-align: center;
+    }
+
+    header nav ul li a {
+        border-bottom: 1px solid rgba(0, 0, 0, .2);
+    }
+}
+
+/*   ------ Login------  */
+.loginBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    min-height: 200px;
+    background: #f5f1da;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.user {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+    width: 75px;
+}
+
+h3 {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #262626;
+    text-align: center;
+}
+
+.loginBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #262626;
+    outline: none;
+    height: 40px;
+    color: #262626;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.loginBox input[type="text"]:focus,
+.loginBox input[type="password"]:focus {
+    border-bottom: 2px solid darkcyan;
+}
+
+.inputBox {
+    position: relative;
+}
+
+.inputBox span {
+    top: 10px;
+    position: absolute;
+}
+
+.loginBox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background: darkcyan;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.loginBox a{
+    color: #262626;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
