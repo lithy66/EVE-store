@@ -28,12 +28,13 @@ class AdminLoginRequest extends FormRequest
             'password' => 'required'
         ];
     }
+
     public function messages()
     {
         return [
-          'email.required' => 'من فضلك ادخل الايميل',
-            'email.email' => 'من فضلك ادخل الايميل بطريقة صحيحه',
-            'password.required' => 'من فضلك ادخل كلمة المرور',
+            'email.required' => __('messages.email required'),
+            'email.email' => __('messages.email true'),
+            'password.required' => __('messages.password true'),
         ];
     }
 }

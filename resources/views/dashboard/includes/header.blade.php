@@ -7,10 +7,10 @@
                         class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                             class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="index.html">
-                        <img class="brand-logo" alt="modern admin logo"
+                    <a class="navbar-brand" href="{{route('admin.dashboard')}}">
+                        <img class="brand-logo" alt="EVE Store logo"
                              src="{{asset('assets/admin/images/logo/logo.png')}}">
-                        <h3 class="brand-text">Modern Admin</h3>
+                        <h3 class="brand-text">EVE Store Admin</h3>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">
@@ -30,21 +30,45 @@
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                <span class="mr-1">مرجبا
+                <span class="mr-1">{{__('admin/nav-footer.welcome')}}
                   <span
-                      class="user-name text-bold-700">  Ahmed Emam</span>
+                      class="user-name text-bold-700">{{auth('admin')->user()->name}}</span>
                 </span>
                             <span class="avatar avatar-online">
-                  <img  style="height: 35px;" src="" alt="avatar"><i></i></span>
+                  <img style="height: 35px;" src="" alt="avatar"><i></i></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href=""><i
-                                    class="ft-user"></i> تعديل الملف الشحصي </a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
+                                                                          href="{{route('edit.profile')}}"><i
+                                    class="ft-user"></i> {{__('auth.edit profile')}} </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href=""><i class="ft-power"></i> تسجيل
-                                الخروج </a>
+                            <a class="dropdown-item" href="{{route('admin.logout')}}"><i
+                                    class="ft-power"></i>{{__('auth.sign out')}}</a>
                         </div>
                     </li>
+                    <!--       Languages           -->
 
+                    <li class="dropdown dropdown-user nav-item">
+                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+
+                            <span class="mr-1">
+
+@if(App::isLocale('ar'))
+                                    <span class="user-name text-bold-700">العربيه</span>
+                                @else
+                                    <span class="user-name text-bold-700">English</span>
+                                @endif
+                   </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}</a>
+                                <div class="dropdown-divider"></div>
+                            @endforeach
+                        </div>
+                    </li>
+                    <!--           123       -->
                     <li class="dropdown dropdown-notification nav-item">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
                             <span class="badge badge-pill badge-default badge-danger badge-default badge-up badge-glow">5</span>
@@ -96,7 +120,7 @@
                                                 class="ft-alert-triangle icon-bg-circle bg-yellow bg-darken-3"></i>
                                         </div>
                                         <div class="media-body">
-                                            <h6 class="media-heading yellow darken-3">Warning notifixation</h6>
+                                            <h6 class="media-heading yellow darken-3">Warning notification</h6>
                                             <p class="notification-text font-small-3 text-muted">Vestibulum auctor
                                                 dapibus neque.</p>
                                             <small>

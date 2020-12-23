@@ -7,14 +7,14 @@
             </li>
 
             <li class="nav-item  open ">
-                <a href=""><i class="la la-home"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">لغات الموقع </span>
+                <a href=""><i class="ft ft-globe"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sideBar.languages')}} </span>
                     <span
                         class="badge badge badge-info badge-pill float-right mr-2"></span>
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="#"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sideBar.view all')}} </a>
                     </li>
                     <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
                             لغة جديده </a>
@@ -23,32 +23,44 @@
             </li>
 
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام الرئيسيه </span>
+            <li class="nav-item"><a href=""><i class="ft ft-file"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sideBar.category')}} </span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::parent()->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="#"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.mainCategories')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sideBar.view all')}} </a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
-                             قسم جديد </a>
+                    <li><a class="menu-item" href="{{route('admin.mainCategories.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sideBar.add category')}} </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الاقسام الفرعية   </span>
+            <li class="nav-item"><a href=""><i class="ft ft-file-minus"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sideBar.sub category')}}   </span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2">400</span>
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::child()->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href="#"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    <li class="active"><a class="menu-item" href="{{route('admin.subCategories')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sideBar.view all')}} </a>
                     </li>
-                    <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
-                            قسم فرعي جديد </a>
+                    <li><a class="menu-item" href="{{route('admin.subCategories.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sideBar.add sub category')}}</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a href=""><i class="ft ft-flag"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('admin/sideBar.brand')}}   </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Brand::child()->count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.brand')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sideBar.view all')}} </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.brand.create')}}" data-i18n="nav.dash.crypto">{{__('admin/sideBar.add brand')}}</a>
                     </li>
                 </ul>
             </li>
@@ -60,7 +72,7 @@
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="#"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin/sideBar.view all')}}</a>
                     </li>
                     <li><a class="menu-item" href="#" data-i18n="nav.dash.crypto">أضافة
                             متجر  </a>
@@ -76,7 +88,7 @@
                 </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                                          data-i18n="nav.dash.ecommerce">{{__('admin/sideBar.view all')}}</a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
                             طالب </a>
@@ -99,24 +111,17 @@
             </li>
 
 
-            <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
-                                                                                    data-i18n="nav.templates.main">Templates</span></a>
+            <li class=" nav-item"><a href="#"><i class="icon icon-settings"></i><span class="menu-title"
+                                                                                    data-i18n="nav.templates.main">{{__('admin/sideBar.settings')}}</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main">Vertical</a>
+                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main"><i class="la la-truck"></i>{{__('admin/sideBar.means of delivery')}}</a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="../vertical-menu-template"
-                                   data-i18n="nav.templates.vert.classic_menu">Classic Menu</a>
+                            <li><a class="menu-item" href="{{route('edit.shipping','free')}}"
+                                   data-i18n="nav.templates.vert.classic_menu">{{__('admin/sideBar.free delivery')}}</a>
                             </li>
-                            <li><a class="menu-item" href="../vertical-modern-menu-template">Modern Menu</a>
+                            <li><a class="menu-item" href="{{route('edit.shipping','inner')}}">{{__('admin/sideBar.inside delivery')}}</a>
                             </li>
-                            <li><a class="menu-item" href="../vertical-compact-menu-template"
-                                   data-i18n="nav.templates.vert.compact_menu">Compact Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-content-menu-template"
-                                   data-i18n="nav.templates.vert.content_menu">Content Menu</a>
-                            </li>
-                            <li><a class="menu-item" href="../vertical-overlay-menu-template"
-                                   data-i18n="nav.templates.vert.overlay_menu">Overlay Menu</a>
+                            <li><a class="menu-item" href="{{route('edit.shipping','outer')}}">{{__('admin/sideBar.outside delivery')}}</a>
                             </li>
                         </ul>
                     </li>
